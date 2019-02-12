@@ -34,3 +34,10 @@ Monoid_id : (mon : Type) -> ((*) : mon -> mon -> mon) -> (IsMonoid mon (*))
 Monoid_id mon (*) (pfAss, pfId) = pfId
 
 
+
+||| Proves that the identity in a monoid is unique
+MonIdUnique: (mon : Type) -> ((*) : mon -> mon -> mon) -> (IsMonoid mon (*))
+            -> (e1: mon) -> (e2: mon) -> IsIdentity mon (*) e1 -> IsIdentity mon (*) e2 -> e1 =e2
+MonIdUnique mon (*) x e1 e2 pf1 pf2 = trans (sym (fst (pf2 e1))) (snd (pf1 e2))
+
+
