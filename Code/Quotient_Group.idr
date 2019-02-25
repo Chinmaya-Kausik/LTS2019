@@ -33,9 +33,9 @@ Is_in_Coset h (+) pf1 g (*) pf2 (f ** pfSub) a b = (y1 : ImageOf h g f ** ((fst 
 total
 Coset_property_1 : (h : Type) -> ((+) : h -> h -> h) -> (pf1 : IsGroup h (+)) -> 
                    (g : Type) -> ((*) : g -> g -> g) -> (pf2 : IsGroup g (*)) -> 
-                   (Subgroup h (MkGroup h (+) pf1) g (MkGroup g (*) pf2)) -> (a : g) -> (b : g) ->
-                   (Is_in_Coset  h (+) pf1 g (*) pf2 (f ** pfSub) a b) ->
-                   (Is_in_Coset  h (+) pf1 g (*) pf2 (f ** pfSub) b a)
+                   (pfSub: Subgroup h (MkGroup h (+) pf1) g (MkGroup g (*) pf2)) -> (a : g) -> (b : g) ->
+                   (Is_in_Coset  h (+) pf1 g (*) pf2 pfSub a b) ->
+                   (Is_in_Coset  h (+) pf1 g (*) pf2 pfSub b a)
 
 Coset_property_1 h (+) pfh g (*) pfg pfSub a b pf_a_in_Cb = let
                                                             y = fst (fst pf_a_in_Cb)
